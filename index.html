@@ -1,563 +1,190 @@
-<!DOCTYPE html>
+<!-- FILE: index.html -->
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novaweb - Tu Aliado Digital en Colombia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #007bff; /* Azul vibrante */
-            --secondary-color: #6c757d; /* Gris para texto secundario */
-            --accent-color: #28a745; /* Verde para destacar */
-            --background-light: #f8f9fa; /* Fondo claro */
-            --background-dark: #343a40; /* Fondo oscuro para footer/header */
-            --text-color-dark: #333;
-            --text-color-light: #fff;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            --transition-speed: 0.3s;
-        }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: var(--background-light);
-            color: var(--text-color-dark);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: color var(--transition-speed) ease;
-        }
-
-        a:hover {
-            color: var(--accent-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--background-dark);
-            color: var(--text-color-light);
-            padding: 15px 0;
-            box-shadow: var(--box-shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--text-color-light);
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-left: 25px;
-        }
-
-        nav ul li a {
-            color: var(--text-color-light);
-            font-weight: 600;
-            font-size: 1.05em;
-            padding: 5px 0;
-            position: relative;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--accent-color);
-            left: 0;
-            bottom: -5px;
-            transition: width var(--transition-speed) ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-            min-height: calc(100vh - 150px); /* Ajuste para que las secciones llenen la pantalla */
-        }
-
-        #inicio {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1920x1080/007bff/ffffff?text=Novaweb+Background') no-repeat center center/cover;
-            color: var(--text-color-light);
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        #inicio h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            color: var(--text-color-light);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        #inicio p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            max-width: 700px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--text-color-light);
-            padding: 15px 30px;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            border: none;
-            cursor: pointer;
-            font-size: 1.1em;
-        }
-
-        .btn:hover {
-            background-color: #218838;
-            transform: translateY(-3px);
-        }
-
-        #servicios .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .service-card {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-        }
-
-        .service-card i {
-            font-size: 3em;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            font-size: 1.6em;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .service-card p {
-            color: var(--secondary-color);
-            flex-grow: 1;
-        }
-
-        #precios .price-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .price-card {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-            position: relative;
-        }
-
-        .price-card.featured {
-            border: 3px solid var(--accent-color);
-            transform: scale(1.03);
-            z-index: 1;
-        }
-
-        .price-card.featured .badge {
-            background-color: var(--accent-color);
-            color: var(--text-color-light);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-weight: 700;
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.9em;
-        }
-
-        .price-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-        }
-
-        .price-card h3 {
-            font-size: 2em;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .price-card .price {
-            font-size: 2.8em;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        .price-card .price span {
-            font-size: 0.5em;
-            font-weight: 400;
-            vertical-align: super;
-            color: var(--text-color-dark);
-        }
-
-        .price-card ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-
-        .price-card ul li {
-            margin-bottom: 10px;
-            color: var(--text-color-dark);
-        }
-
-        .price-card ul li::before {
-            content: '✔️';
-            margin-right: 10px;
-            color: var(--accent-color);
-        }
-
-        #nosotros {
-            background-color: #fff;
-            text-align: center;
-        }
-
-        #nosotros p {
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-            font-size: 1.1em;
-            color: var(--secondary-color);
-        }
-
-        #contacto {
-            background-color: var(--background-dark);
-            color: var(--text-color-light);
-            text-align: center;
-        }
-
-        #contacto h2 {
-            color: var(--text-color-light);
-        }
-
-        #contacto .contact-info {
-            margin-top: 30px;
-            font-size: 1.2em;
-        }
-
-        #contacto .contact-info p {
-            margin-bottom: 10px;
-        }
-
-        #contacto .social-links a {
-            color: var(--text-color-light);
-            font-size: 2em;
-            margin: 0 15px;
-            transition: color var(--transition-speed) ease;
-        }
-
-        #contacto .social-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--background-dark);
-            color: var(--text-color-light);
-            text-align: center;
-            padding: 20px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-            }
-
-            nav ul {
-                margin-top: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav ul li {
-                margin: 5px 15px;
-            }
-
-            #inicio h1 {
-                font-size: 2.5em;
-            }
-
-            #inicio p {
-                font-size: 1em;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .price-grid, .service-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3375668065723012"
-     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IconiqShop — Cartago, Valle</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">IQ</div>
+      <div class="brand-text">
+        <div class="name">IconiqShop</div>
+        <div class="place">Cartago, Valle</div>
+      </div>
+    </div>
 
-    <header>
-        <div class="container">
-            <a href="#inicio" class="logo">Novaweb</a>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#precios">Precios</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
+    <nav class="main-nav" id="mainNav">
+      <a href="#productos">Productos</a>
+      <a href="#colecciones">Colecciones</a>
+      <a href="#about">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <button id="navToggle" class="nav-toggle" aria-label="Abrir menú">☰</button>
+  </header>
+
+  <div class="strip">🚨 ¡Últimas unidades disponibles! Aprovecha antes de que se agoten 🚨</div>
+
+  <main>
+    <section class="hero" aria-label="Hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1>Fragancias que inspiran</h1>
+          <p class="lead">Perfumes curados con amor desde Cartago, Valle. Ediciones limitadas, aromas icónicos y empaques premium — para regalar o para sentirte único.</p>
+          <div class="cta-group">
+            <a href="#productos" class="btn primary">Explorar best sellers</a>
+            <a href="#colecciones" class="btn ghost">Ver colecciones</a>
+          </div>
+          <p class="meta">Envíos • Nacionales — Entrega 48–72h</p>
         </div>
-    </header>
 
-    <main>
-        <section id="inicio">
-            <div class="container">
-                <h1>Tu Emprendimiento Online Empieza Aquí</h1>
-                <p>En Novaweb, creamos sitios web profesionales y económicos para emprendedores en Colombia. ¡Haz crecer tu negocio con una presencia digital impactante!</p>
-                <a href="#precios" class="btn">Ver Planes y Precios</a>
-            </div>
-        </section>
-
-        <section id="servicios">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 50px;">Nuestros Servicios</h2>
-                <div class="service-grid">
-                    <div class="service-card">
-                        <i class="fas fa-desktop"></i>
-                        <h3>Diseño Web Adaptativo</h3>
-                        <p>Creamos sitios web que se ven increíbles y funcionan perfectamente en cualquier dispositivo: computadoras, tablets y móviles.</p>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-store"></i>
-                        <h3>Tiendas Online (E-commerce)</h3>
-                        <p>Monta tu propia tienda virtual para vender tus productos o servicios 24/7. Integración de métodos de pago y gestión de productos.</p>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-cogs"></i>
-                        <h3>Sitios Web a Medida</h3>
-                        <p>Desarrollamos soluciones web personalizadas que se adaptan exactamente a las necesidades y objetivos únicos de tu negocio.</p>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-bullhorn"></i>
-                        <h3>Optimización SEO Básica</h3>
-                        <p>Ayudamos a que tu sitio sea encontrado por tus clientes potenciales, optimizando el contenido para los motores de búsqueda.</p>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-brush"></i>
-                        <h3>Diseño Gráfico Esencial</h3>
-                        <p>Ofrecemos servicios de diseño gráfico para complementar tu sitio web, desde logotipos hasta banners promocionales.</p>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-headset"></i>
-                        <h3>Soporte y Mantenimiento</h3>
-                        <p>No te dejamos solo. Brindamos soporte inicial y opciones de mantenimiento para que tu web esté siempre al día y funcionando.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        ---
-        <section id="precios" style="background-color: var(--background-light);">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 50px;">Planes y Precios Accesibles</h2>
-                <p style="text-align: center; margin-bottom: 40px; font-size: 1.1em; color: var(--secondary-color);">Ofrecemos soluciones para cada etapa de tu emprendimiento, con precios justos y transparentes.</p>
-                <div class="price-grid">
-                    <div class="price-card">
-                        <h3>Básico Emprendedor</h3>
-                        <div class="price">$80k<span>COP</span></div>
-                        <ul>
-                            <li>✔️ Diseño de una página web sencilla (landing page)</li>
-                            <li>✔️ Adaptado a móviles (Responsive Design)</li>
-                            <li>✔️ 1 sección de contacto o formulario básico</li>
-                            <li>✔️ Enlaces a redes sociales</li>
-                            <li>✔️ Ideal para presentar tu negocio rápidamente</li>
-                            <li>✔️ Entrega en 3-5 días hábiles</li>
-                        </ul>
-                        <a href="#contacto" class="btn">¡Lo Quiero!</a>
-                    </div>
-
-                    <div class="price-card">
-                        <h3>Estándar Pro</h3>
-                        <div class="price">$150k<span>COP</span></div>
-                        <ul>
-                            <li>✔️ Diseño web profesional (hasta 5 secciones)</li>
-                            <li>✔️ Adaptado a móviles (Responsive Design)</li>
-                            <li>✔️ Galería de imágenes / Portafolio</li>
-                            <li>✔️ Formulario de contacto avanzado</li>
-                            <li>✔️ Optimización SEO básica</li>
-                            <li>✔️ Integración de Google Maps</li>
-                            <li>✔️ Entrega en 7-10 días hábiles</li>
-                        </ul>
-                        <a href="#contacto" class="btn">¡Lo Quiero!</a>
-                    </div>
-
-                    <div class="price-card featured">
-                        <span class="badge">¡Más Popular!</span>
-                        <h3>Premium Total</h3>
-                        <div class="price">$200k<span>COP</span></div>
-                        <ul>
-                            <li>✔️ Diseño web avanzado y personalizado (hasta 10 secciones)</li>
-                            <li>✔️ Adaptado a móviles (Responsive Design)</li>
-                            <li>✔️ Tienda Online Básica (hasta 10 productos)</li>
-                            <li>✔️ Blog o sección de noticias</li>
-                            <li>✔️ Integración con WhatsApp Business</li>
-                            <li>✔️ Configuración de Analytics</li>
-                            <li>✔️ 1 mes de soporte post-lanzamiento</li>
-                            <li>✔️ Entrega en 10-15 días hábiles</li>
-                        </ul>
-                        <a href="#contacto" class="btn">¡Lo Quiero!</a>
-                    </div>
-
-                     <div class="price-card">
-                        <h3>Express Full</h3>
-                        <div class="price">$250k<span>COP</span></div>
-                        <ul>
-                            <li>✔️ Diseño web completo y prioritario</li>
-                            <li>✔️ Hasta 5 secciones principales</li>
-                            <li>✔️ Contenido optimizado para lanzamiento rápido</li>
-                            <li>✔️ Contacto y enlaces sociales</li>
-                            <li>✔️ Ideal para necesidades urgentes</li>
-                            <li>✔️ **Entrega en MENOS DE 1 DÍA** (bajo disponibilidad y contenido listo)</li>
-                            <li>✔️ Soporte prioritario</li>
-                        </ul>
-                        <a href="#contacto" class="btn">¡Lo Quiero!</a>
-                    </div>
-                </div>
-                <p style="text-align: center; margin-top: 50px; font-size: 0.9em; color: var(--secondary-color);">*Los precios son aproximados y pueden variar según la complejidad y funcionalidades adicionales requeridas. Contáctanos para una cotización personalizada.</p>
-            </div>
-        </section>
-        ---
-        <section id="nosotros">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 30px;">Sobre Novaweb</h2>
-                <p>Somos un equipo de apasionados por el desarrollo web con sede en Colombia, dedicados a empoderar a los emprendedores. Entendemos los desafíos de iniciar un negocio y la importancia de una presencia digital sólida. Por eso, en **Novaweb**, nos especializamos en crear soluciones web **económicas, profesionales y efectivas** que te ayuden a destacar en el mercado.</p>
-                <p>Nuestra misión es hacer que la creación de tu página web sea un proceso **sencillo y accesible**, permitiéndote concentrarte en lo que mejor sabes hacer: ¡crecer tu negocio!</p>
-            </div>
-        </section>
-        ---
-        <section id="contacto">ñ
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 30px;">¡Hablemos de tu Proyecto!</h2>
-                <p style="text-align: center; margin-bottom: 40px; font-size: 1.1em;">¿Listo para llevar tu emprendimiento al siguiente nivel? Contáctanos y empecemos a construir tu presencia online.</p>
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@novaweb.com">info@novaweb.com</a></p>
-                    <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/3148956287" target="_blank" aria-label="Enviar mensaje por WhatsApp">+57 314 895 6287</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Ubicación: Cartago, Valle del Cauca, Colombia</p>
-                </div>
-                <div class="social-links" style="margin-top: 40px;">
-                    <a href="https://www.instagram.com/novaweb_proyects" target="_blank" aria-label="Instagram de Novaweb"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank" aria-label="Facebook de Novaweb"><i class="fab fa-facebook"></i></a>
-                    <a href="#" target="_blank" aria-label="LinkedIn de Novaweb"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Novaweb. Todos los derechos reservados. Hecho con ❤️ en Colombia.</p>
+        <div class="hero-media">
+          <img src="hero-photo.jpg" alt="Perfumes" class="hero-img">
+          <div class="hero-tag">
+            <div class="small">Edición limitada</div>
+            <div class="title">Nocturna</div>
+            <div class="price">$62</div>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <script>
-        // Smooth scrolling para los enlaces internos
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">Nuevo: Colección Mini — 3 fragancias de viaje • Empaque premium gratis en compras mayores a $50 • Suscríbete y recibe descuentos exclusivos</div>
+      </div>
+    </section>
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <section class="embed-reel">
+      <h2>Mira nuestro Reel en Instagram</h2>
+      <div class="reel-wrap">
+        <iframe src="https://www.instagram.com/reel/DCCQ36mxbgH/embed" width="400" height="480" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="follow">Síguenos en <a href="https://www.instagram.com/iconiqshop.co" target="_blank" rel="noopener">@iconiqshop.co</a></p>
+    </section>
 
-        // Este script es un extra para simular algo de interactividad si fuera necesario
-        // Por ejemplo, un formulario de contacto real necesitaría un backend,
-        // pero aquí podemos simular un envío.
-        // const contactForm = document.getElementById('contactForm');
-        // if (contactForm) {
-        //     contactForm.addEventListener('submit', function(e) {
-        //         e.preventDefault();
-        //         alert('¡Mensaje enviado! Nos pondremos en contacto contigo pronto.');
-        //         // Aquí iría la lógica para enviar el formulario a un servidor
-        //         this.reset();
-        //     });
-        // }
-    </script>
-    
+    <!-- Vista previa de perfil de Instagram -->
+    <section class="embed-reel">
+        <h2>Síguenos en Instagram</h2>
+        <iframe src="https://www.instagram.com/iconiqshop.co/embed" frameborder="9" height="800"  width="800"></iframe>
+    </section>
+
+
+
+    <section id="productos" class="products-section">
+      <div class="section-head">
+        <h2>Lo más vendido</h2>
+        <a class="see-all" href="#">Ver todo</a>
+      </div>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <img src="https://www.instagram.com/p/DBrv679yKfL/?utm_source=ig_web_copy_link&igsh=YjdseDZmajl0cTMy" alt="Eau de Iconiq — Oro">
+          <div class="product-body">
+            <h3>rihannah secret musk</h3>
+            <p class="desc">Notas de bergamota, jazmín y vetiver — elegante y duradero.</p>
+            <div class="product-meta">
+              <div class="price">$48</div>
+              <div class="actions">
+                <button class="btn ghost">Vista rápida</button>
+                <button class="btn primary">Añadir</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="perfume-2.jpg" alt="Nocturna — Edición limitada">
+          <div class="product-body">
+            <h3>Nocturna — Edición limitada</h3>
+            <p class="desc">Un aroma nocturno con ámbar y madera de sándalo.</p>
+            <div class="product-meta">
+              <div class="price">$62</div>
+              <div class="actions">
+                <button class="btn ghost">Vista rápida</button>
+                <button class="btn primary">Añadir</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="perfume-3.jpg" alt="Brisa Cordillera">
+          <div class="product-body">
+            <h3>Brisa Cordillera</h3>
+            <p class="desc">Aromas frescos y ligeros para uso diario.</p>
+            <div class="product-meta">
+              <div class="price">$36</div>
+              <div class="actions">
+                <button class="btn ghost">Vista rápida</button>
+                <button class="btn primary">Añadir</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="collections">
+      <div class="collections-copy">
+        <h2>Colecciones</h2>
+        <p>Explora nuestras colecciones curadas por notas: cítricos, florales y amaderados. Perfectas para regalar o para encontrar tu aroma signature.</p>
+        <div class="pills">
+          <div class="pill">Citrus<br><span class="muted">Fresco</span></div>
+          <div class="pill">Floral<br><span class="muted">Delicado</span></div>
+          <div class="pill">Amaderado<br><span class="muted">Intenso</span></div>
+        </div>
+      </div>
+
+      <div class="collections-media">
+        <img src="collections.jpg" alt="Colecciones" />
+        <div class="collections-tag">Empaque premium • Regalos listos</div>
+      </div>
+    </section>
+
+    <section class="promo-strip">
+      <div class="promo">2x1 en minis — Solo hasta agotar stock</div>
+      <div class="promo">Suscripción sorpresa — Recibe 1 sorpresa mensual</div>
+      <div class="promo">Envoltura premium gratis en compras +$50</div>
+    </section>
+
+    <section id="about" class="about">
+      <h2>Nuestra historia</h2>
+      <p>IconiqShop nace en Cartago, Valle con la misión de acercar fragancias curadas y experiencias sensoriales. Seleccionamos fragancias por su personalidad y durabilidad, con empaques sostenibles y un toque local.</p>
+
+      <div class="newsletter">
+        <h3>Únete a la comunidad Iconiq</h3>
+        <p>Descuentos exclusivos, lanzamientos y contenido olfativo</p>
+        <form id="newsletterForm" class="newsletter-form">
+          <input type="email" name="email" placeholder="Tu mejor correo" required>
+          <button class="btn primary" type="submit">Suscribirme</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contacto" class="site-footer">
+    <div class="footer-main">
+      <div>
+        <div class="brand">IconiqShop</div>
+        <div class="muted">Cartago, Valle • Atención local</div>
+      </div>
+
+      <div class="footer-links">
+        <div>Atención: Contacto • Envíos • Devoluciones</div>
+        <div>Síguenos: Instagram • TikTok • Facebook</div>
+      </div>
+    </div>
+    <div class="copyright">&copy; 2025 IconiqShop — Todos los derechos reservados</div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
+
+
+

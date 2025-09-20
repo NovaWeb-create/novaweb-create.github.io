@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaWeb Proyectos - Tu Aliado Digital en Colombia</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .scroll-smooth-anchor {
+            scroll-behavior: smooth;
+        }
+        /* Estilos para el mensaje de éxito */
+        #success-message {
+            display: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+        }
+        /* Estilos para el efecto hover en las tarjetas */
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        /* Fondo para el degradado en el hero */
+        .hero-bg {
+            background-color: #0e111d;
+            background-image: radial-gradient(at 0% 100%, hsla(240, 60%, 40%, 0.15) 0, transparent 50%),
+                              radial-gradient(at 100% 0%, hsla(240, 60%, 40%, 0.15) 0, transparent 50%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 scroll-smooth-anchor">
+
+    <!-- Mensaje de éxito (oculto por defecto) -->
+    <div id="success-message" class="fixed p-6 rounded-lg shadow-lg bg-green-500 text-white transition-opacity duration-300 ease-in-out opacity-0">
+        <p class="font-bold text-lg">¡Mensaje enviado con éxito!</p>
+        <p>Pronto nos pondremos en contacto contigo.</p>
+    </div>
+
+    <!-- Navegación Principal -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#inicio" class="text-2xl font-bold text-gray-900">NovaWeb Proyectos</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#inicio" class="text-gray-600 hover:text-blue-600 transition duration-300">Inicio</a>
+                <a href="#servicios" class="text-gray-600 hover:text-blue-600 transition duration-300">Servicios</a>
+                <a href="#casos" class="text-gray-600 hover:text-blue-600 transition duration-300">Casos de Éxito</a>
+                <a href="#contacto" class="text-gray-600 hover:text-blue-600 transition duration-300">Contacto</a>
+            </div>
+            <!-- Botón de menú móvil -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Menú móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-2">
+            <a href="#inicio" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 transition duration-300">Inicio</a>
+            <a href="#servicios" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 transition duration-300">Servicios</a>
+            <a href="#casos" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 transition duration-300">Casos de Éxito</a>
+            <a href="#contacto" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 transition duration-300">Contacto</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sección Hero -->
+        <section id="inicio" class="hero-bg text-white py-24 sm:py-32 rounded-b-[50px]">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    Potencia tu Negocio <br class="hidden sm:block"> en el Mundo Digital
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Transformamos ideas en presencia online, conectando tu marca con clientes en toda Colombia y más allá.
+                </p>
+                <a href="#contacto" class="inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                    Empezar Ahora
+                </a>
+            </div>
+        </section>
+
+        <!-- Sección de Servicios -->
+        <section id="servicios" class="py-16 sm:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 card-hover transition-transform duration-300">
+                        <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-code"></i></div>
+                        <h3 class="text-2xl font-bold mb-3">Desarrollo Web Profesional</h3>
+                        <p class="text-gray-600">
+                            Construimos plataformas digitales que trabajan para ti 24/7. Desde tiendas virtuales intuitivas hasta sitios web corporativos que inspiran confianza, diseñamos experiencias que tus clientes amarán.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 card-hover transition-transform duration-300">
+                        <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-bullhorn"></i></div>
+                        <h3 class="text-2xl font-bold mb-3">Marketing Digital Estratégico</h3>
+                        <p class="text-gray-600">
+                            Nos aseguramos de que tu negocio sea visible para las personas correctas en el momento adecuado. Aumenta tus ventas y consolida tu marca con nuestras estrategias de SEO, SEM y gestión de redes sociales.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Casos de Éxito Ficticios -->
+        <section id="casos" class="bg-gray-100 py-16 sm:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">Casos de Éxito <span class="text-gray-500">(Ejemplos Ficticios)</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Caso 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transition-transform duration-300">
+                        <h3 class="text-xl sm:text-2xl font-bold text-blue-600 mb-2">"La Panela Mágica"</h3>
+                        <p class="text-gray-600 mb-4">Emprendimiento de productos a base de panela orgánica.</p>
+                        <ul class="space-y-3 text-sm sm:text-base">
+                            <li><span class="font-bold">Problema:</span> Vendían solo en ferias locales.</li>
+                            <li><span class="font-bold">Solución:</span> Desarrollamos un e-commerce y una estrategia en redes sociales.</li>
+                            <li><span class="font-bold">Resultado:</span> Aumentaron las ventas online en un 250% en 3 meses.</li>
+                        </ul>
+                    </div>
+                    <!-- Caso 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transition-transform duration-300">
+                        <h3 class="text-xl sm:text-2xl font-bold text-blue-600 mb-2">"Fitness Express Colombia"</h3>
+                        <p class="text-gray-600 mb-4">Gimnasio local en Pereira.</p>
+                        <ul class="space-y-3 text-sm sm:text-base">
+                            <li><span class="font-bold">Problema:</span> Querían atraer clientes jóvenes, pero su única presencia era una página de Facebook desactualizada.</li>
+                            <li><span class="font-bold">Solución:</span> Creamos una página web corporativa y campañas en Instagram.</li>
+                            <li><span class="font-bold">Resultado:</span> Aumentaron la asistencia de nuevos miembros en un 40% en 2 meses.</li>
+                        </ul>
+                    </div>
+                    <!-- Caso 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transition-transform duration-300">
+                        <h3 class="text-xl sm:text-2xl font-bold text-blue-600 mb-2">"Café Origen Sostenible"</h3>
+                        <p class="text-gray-600 mb-4">Finca productora de café de especialidad.</p>
+                        <ul class="space-y-3 text-sm sm:text-base">
+                            <li><span class="font-bold">Problema:</span> No lograban que compradores internacionales los descubrieran.</li>
+                            <li><span class="font-bold">Solución:</span> Construimos un sitio web multilingüe y una estrategia SEO avanzada.</li>
+                            <li><span class="font-bold">Resultado:</span> Consiguieron un acuerdo para exportar a Europa.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contacto" class="py-16 sm:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4">¿Listo para Empezar?</h2>
+                <p class="text-center text-gray-600 mb-12">Hablemos de tus ideas y construyamos algo grandioso juntos.</p>
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                    <div class="mt-8 text-center text-gray-600 space-y-2">
+                        <p><i class="fas fa-phone mr-2"></i>+57 3148956287</p>
+                        <p><i class="fab fa-instagram mr-2"></i><a href="https://www.instagram.com/novaweb_proyects/" class="hover:underline" target="_blank">@novaweb_proyects</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center text-sm text-gray-400">
+            <p>&copy; 2025 NovaWeb Proyectos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const contactForm = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+
+            // Lógica para mostrar/ocultar el menú móvil
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Ocultar menú móvil al hacer clic en un enlace
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Manejo del envío del formulario (simulado)
+            contactForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Previene el envío real del formulario
+
+                // Muestra el mensaje de éxito
+                successMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    successMessage.classList.remove('opacity-0');
+                }, 10); // Un pequeño retraso para la transición
+
+                // Oculta el mensaje después de 3 segundos
+                setTimeout(() => {
+                    successMessage.classList.add('opacity-0');
+                    setTimeout(() => {
+                        successMessage.classList.add('hidden');
+                    }, 300); // Coincide con la duración de la transición
+                }, 3000);
+
+                // Opcional: limpiar el formulario
+                contactForm.reset();
+            });
+        });
+    </script>
+
+</body>
+</html>
